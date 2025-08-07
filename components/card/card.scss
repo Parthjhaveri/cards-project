@@ -2,15 +2,21 @@
     width: 20%;
     flex-wrap: wrap;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     flex: 1 1 calc(25% - 20px); /* 4 columns */
     box-sizing: border-box;
-    border: 1px solid black;
     min-height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
     
     .card-profile-pic {
         width: 80px;
         height: 80px;
-        border: 2px solid red;
+        border-radius: 100%;
+        border: 2px solid #fff;
     }
 }
 

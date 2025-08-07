@@ -1,4 +1,3 @@
-// import images from '../../static/imgs/thumbs';
 import title from '../title/title';
 
 export default function card(cardData) {
@@ -9,11 +8,12 @@ export default function card(cardData) {
     profilePic.className = 'card-profile-pic';
     profilePic.src = window._getThumbnailURL(cardData.thumbnail);
     
+    const nameSpan = document.createElement('span');
+    nameSpan.appendChild(title('h2', (cardData.firstName + ' ' + cardData.lastName)));
+
     card.appendChild(profilePic);
-    card.appendChild(title('h2', cardData.firstName));
-    card.appendChild(title('h2', cardData.lastName));
+    card.appendChild(nameSpan);
     card.appendChild(title('p', cardData.teamName));
 
-    // card.innerHTML = cardData?.firstName;
     return card;
 };
