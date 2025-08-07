@@ -6,10 +6,13 @@ export default function card(cardData) {
     card.className = 'section-card';
     
     const profilePic = document.createElement('img');
+    profilePic.className = 'card-profile-pic';
     profilePic.src = window._getThumbnailURL(cardData.thumbnail);
     
     card.appendChild(profilePic);
-    card.appendChild(title('p', cardData.firstName));
+    card.appendChild(title('h2', cardData.firstName));
+    card.appendChild(title('h2', cardData.lastName));
+    card.appendChild(title('p', cardData.teamName));
 
     // card.innerHTML = cardData?.firstName;
     return card;

@@ -2,7 +2,8 @@
 @import "02-variables/fonts.scss";
 @import '../components/hero/hero.scss';
 @import '../components/announcement-bar/announcement.scss';
-
+@import '../components/cards-archive/cards-archive.scss';
+@import '../components/card/card.scss';
 
 #app {
     display: flex;
