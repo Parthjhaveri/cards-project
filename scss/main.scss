@@ -1,0 +1,10 @@
+@import "01-vendors/normalize.css";
+@import "02-variables/fonts.scss";
+@import '../components/hero/hero.scss';
+@import '../components/announcement-bar/announcement.scss';
+
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
