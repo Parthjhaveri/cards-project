@@ -1,19 +1,36 @@
 .section-card {
-    flex-basis: 30%;
+    width: 20%;
+    flex-wrap: wrap;
     display: flex;
-    gap: 20px;
+    flex: 1 1 calc(25% - 20px); /* 4 columns */
+    box-sizing: border-box;
     border: 1px solid black;
     min-height: 200px;
-    margin-bottom: 20px;
-
-    &:nth-child(even) {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
     
     .card-profile-pic {
         width: 80px;
         height: 80px;
         border: 2px solid red;
     }
+}
+
+/* 3 columns for screen < 1200px */
+@media (max-width: 1199px) {
+  .section-card {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+}
+
+/* 2 columns for screen < 900px */
+@media (max-width: 899px) {
+  .section-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+/* 1 column for screen < 600px */
+@media (max-width: 599px) {
+  .section-card {
+    flex: 1 1 100%;
+  }
 }
