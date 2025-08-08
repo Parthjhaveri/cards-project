@@ -4,4 +4,21 @@
     padding: 8px 30px;
     background-color: #1a1a1a;
     color: #b4b4b4;
+    display: flex;
+    justify-content: center;
+    
+    p {
+        top: -5px;
+        position: relative;
+    }
+}
+
+@media (max-width: 575px) {
+  .section-announcement {
+    height: auto;
+    
+    p {
+        top: 0px;
+    }
+}
 }

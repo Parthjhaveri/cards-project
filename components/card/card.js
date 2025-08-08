@@ -3,6 +3,7 @@ import title from '../title/title';
 export default function card(cardData) {
     const card = document.createElement('div');
     card.className = 'section-card';
+    card.role = 'card'; // FOR WCAG
     
     if (cardData) {
         // IMAGE DIV
@@ -17,6 +18,7 @@ export default function card(cardData) {
         // PROFILE PIC
         const profilePic = document.createElement('img');
         profilePic.className = 'card-profile-pic';
+        profilePic.alt = 'card-profile-pic'; // FOR WCAG
         profilePic.src = window._getThumbnailURL(cardData.thumbnail);
         
         // NAME
@@ -26,14 +28,16 @@ export default function card(cardData) {
         // APPEND
         wrapperSpan.appendChild(profilePic);
         wrapperSpan.appendChild(nameSpan);
-        wrapperSpan.appendChild(title('p', cardData.title));
+        wrapperSpan.appendChild(title('h4', cardData.title));
         wrapperSpan.appendChild(title('p', cardData.bioShort));
-        wrapperSpan.appendChild(title('p', `Skill: ${cardData.linkedInSkill}`));
-        wrapperSpan.appendChild(title('p', `Team: ${cardData.teamName || cardData.team}`));
+        wrapperSpan.appendChild(title('h4', `Skill: ${cardData.linkedInSkill}`));
+        wrapperSpan.appendChild(title('h4', `Team: ${cardData.teamName || cardData.team}`));
 
         // BUTTON
         const btn = document.createElement('button');
         btn.className = 'card-btn';
+        btn.type = 'button'; // FOR WCAG
+        btn.role = 'button'; // FOR WCAG
         btn.innerHTML = 'Contact';
         card.appendChild(wrapperSpan);
         card.appendChild(btn);

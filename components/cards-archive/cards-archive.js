@@ -1,11 +1,12 @@
 import users from '../../static/data/cards-data.json';
 import card from '../card/card';
+import backToTop from '../back-to-top/back-to-top';
 
 export default function cardsArchive() {
   const cardsArchive = document.createElement('section');
   cardsArchive.className = 'section-cards-archive';
 
-  const sentinel = document.createElement('div'); // Lazy load trigger
+  const sentinel = document.createElement('div');
   sentinel.id = 'lazy-sentinel';
   cardsArchive.appendChild(sentinel);
 
@@ -28,34 +29,35 @@ export default function cardsArchive() {
         if (lastA > lastB) return 1;
         return 0;
       });
-      console.log('sortedData--- ', sortedData);
 
-      loadNextBatch(); // Load first batch
-
-      observer.observe(sentinel); // Start observing
-    });
-
-  function loadNextBatch() {
-    const nextBatch = sortedData.slice(currentIndex, currentIndex + cardsPerBatch);
-    nextBatch.forEach(data => {
-      cardsArchive.insertBefore(card(data), sentinel); // Insert before sentinel
-    });
-
-    currentIndex += cardsPerBatch;
-
-    if (currentIndex >= sortedData.length) {
-      observer.disconnect(); // Stop loading more
-      sentinel.remove(); // Optional: remove sentinel
-    }
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
       loadNextBatch();
-    }
-  }, {
-    rootMargin: '200px'
-  });
 
-  return cardsArchive;
+      observer.observe(sentinel); 
+    });
+
+    function loadNextBatch() {
+        const nextBatch = sortedData.slice(currentIndex, currentIndex + cardsPerBatch);
+        nextBatch.forEach(data => {
+        cardsArchive.insertBefore(card(data), sentinel);
+        });
+
+        currentIndex += cardsPerBatch;
+
+        if (currentIndex >= sortedData.length) {
+        observer.disconnect(); 
+        sentinel.remove();
+        }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            loadNextBatch();
+        }
+    }, {
+        rootMargin: '200px'
+    });
+
+    backToTop(cardsArchive);
+
+    return cardsArchive;
 }

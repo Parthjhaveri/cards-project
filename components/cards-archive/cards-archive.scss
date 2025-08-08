@@ -9,3 +9,19 @@
     box-sizing: border-box;
     background-color: rgba(227, 227, 227, 0.716);
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+
+}
