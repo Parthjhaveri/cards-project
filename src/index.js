@@ -1,5 +1,7 @@
 const css = require('./scss/main.scss');
-
+import hero from './components/hero/hero';
+import announcement from './components/announcement-bar/announcement';
+import cardsArchive from './components/cards-archive/cards-archive'
 
 /**
  *
@@ -22,3 +24,8 @@ const createImageFinderMethod = ()=> {
 }
 
 window._getThumbnailURL = createImageFinderMethod();
+
+const app = document.getElementById('app');
+app.appendChild(announcement());
+app.appendChild(hero());
+app.appendChild(cardsArchive());
