@@ -28,6 +28,7 @@ export default function cardsArchive() {
         if (lastA > lastB) return 1;
         return 0;
       });
+      console.log('sortedData--- ', sortedData);
 
       loadNextBatch(); // Load first batch
 
